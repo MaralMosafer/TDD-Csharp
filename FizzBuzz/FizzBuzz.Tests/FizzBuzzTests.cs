@@ -18,5 +18,19 @@ namespace FizzBuzz.Tests
             //assert => verify
             actual.Count.Should().Be(rounds);
         }
+
+        [Fact]
+        public void Should_ReturnFizzWhenPassingMultipleOf3()
+        {
+            //arrange => setup
+            const int rounds = 100; 
+            var fizzBuzz = new FizzBuzz();
+
+            //act => exercise
+            var actual = fizzBuzz.Start(rounds);
+
+            //assert => verify
+            actual[2].Should().Be("Fizz");
+        }
     }
 }

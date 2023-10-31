@@ -4,10 +4,18 @@
     {
         public List<string> Start(int rounds)
         {
-            var result= new List<string>();
+            var result = new List<string>();
             for (int i = 1; i <= rounds; i++)
             {
-                result.Add(i.ToString());
+                if (i % 3 == 0)
+                {
+                    result.Add("Fizz");
+                }
+
+                else
+                {
+                    result.Add(i.ToString());
+                }
             }
             return result;
         }
