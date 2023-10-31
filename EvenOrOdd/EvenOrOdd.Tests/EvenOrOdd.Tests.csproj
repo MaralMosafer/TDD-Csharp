@@ -16,4 +16,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EvenOrOdd\EvenOrOdd.csproj" />
+  </ItemGroup>
+
 </Project>
