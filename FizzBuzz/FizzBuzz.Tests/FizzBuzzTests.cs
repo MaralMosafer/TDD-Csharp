@@ -10,53 +10,27 @@ namespace FizzBuzz.Tests
         {
             //arrange => setup
             const int rounds = 100; //1-100
-            var fizzBuzz = new FizzBuzz();
 
             //act => exercise
-            var actual = fizzBuzz.Start(rounds);
+            var actual = FizzBuzz.Start(rounds);
 
             //assert => verify
             actual.Count.Should().Be(rounds);
         }
-
-        [Fact]
-        public void Should_ReturnFizzWhenPassingMultipleOf3()
-        {
-            //arrange => setup
-            const int rounds = 100; 
-            var fizzBuzz = new FizzBuzz();
-
-            //act => exercise
-            var actual = fizzBuzz.Start(rounds);
-
-            //assert => verify
-            actual[2].Should().Be("Fizz");
-        }
-        [Fact]
-        public void Should_ReturnFizzWhenPassingMultipleOf5()
+        [Theory]
+        [InlineData("Fizz", 2)]
+        [InlineData("Buzz", 4)]
+        [InlineData("FizzBuzz", 14)]
+        public void Should_ReturnAListWithProperValuesWithGivenElements(string expected, int element)
         {
             //arrange => setup
             const int rounds = 100;
-            var fizzBuzz = new FizzBuzz();
 
             //act => exercise
-            var actual = fizzBuzz.Start(rounds);
+            var actual = FizzBuzz.Start(rounds);
 
             //assert => verify
-            actual[4].Should().Be("Buzz");
-        }
-        [Fact]
-        public void Should_ReturnFizzWhenPassingMultipleOf3And5()
-        {
-            //arrange => setup
-            const int rounds = 100;
-            var fizzBuzz = new FizzBuzz();
-
-            //act => exercise
-            var actual = fizzBuzz.Start(rounds);
-
-            //assert => verify
-            actual[14].Should().Be("FizzBuzz");
+            actual[element].Should().Be(expected);
         }
     }
 }
