@@ -18,5 +18,19 @@ namespace EvenOrOdd.Tests
             //Assert => verify
             actual.Should().Be("Even");
         }
+
+        [Fact]
+        public void Should_ReturnOdd()
+        {
+            //Arrange => setup
+            const int input = 3;
+            var evaluation = new Evaluation();
+
+            //Act => exercise
+            var actual = evaluation.Evaluator(input);
+
+            //Assert => verify
+            actual.Should().Be("Odd");
+        }
     }
 }
