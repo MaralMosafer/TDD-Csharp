@@ -7,7 +7,11 @@
             var result = new List<string>();
             for (int i = 1; i <= rounds; i++)
             {
-                if (i % 3 == 0)
+                if (i % 15 == 0)
+                {
+                    result.Add("FizzBuzz");
+                }
+                else if (i % 3 == 0)
                 {
                     result.Add("Fizz");
                 }

@@ -45,5 +45,18 @@ namespace FizzBuzz.Tests
             //assert => verify
             actual[4].Should().Be("Buzz");
         }
+        [Fact]
+        public void Should_ReturnFizzWhenPassingMultipleOf3And5()
+        {
+            //arrange => setup
+            const int rounds = 100;
+            var fizzBuzz = new FizzBuzz();
+
+            //act => exercise
+            var actual = fizzBuzz.Start(rounds);
+
+            //assert => verify
+            actual[14].Should().Be("FizzBuzz");
+        }
     }
 }
