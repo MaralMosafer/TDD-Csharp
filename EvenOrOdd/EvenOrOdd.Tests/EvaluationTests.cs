@@ -10,10 +10,9 @@ namespace EvenOrOdd.Tests
         {
             //Arrange => setup
             const int input = 2;
-            var evaluation = new Evaluation();
 
             //Act => exercise
-            var actual = evaluation.Evaluator(input);
+            var actual = Evaluation.Evaluator(input);
 
             //Assert => verify
             actual.Should().Be("Even");
@@ -24,10 +23,9 @@ namespace EvenOrOdd.Tests
         {
             //Arrange => setup
             const int input = 3;
-            var evaluation = new Evaluation();
 
             //Act => exercise
-            var actual = evaluation.Evaluator(input);
+            var actual = Evaluation.Evaluator(input);
 
             //Assert => verify
             actual.Should().Be("Odd");

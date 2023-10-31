@@ -2,13 +2,9 @@
 {
     public class Evaluation
     {
-        public string Evaluator(int number)
+        public static string Evaluator(int number)
         {
-            if (number % 2 == 0)
-            {
-                return "Even";
-            }
-            else return "Odd";
+            return number % 2==0 ? "Even" : "Odd";
         }
     }
 }
