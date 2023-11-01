@@ -1,4 +1,6 @@
-﻿using FluentAssertions;
+﻿using Academy.Domain.Tests.builders;
+using Academy.Domain.Tests.factories;
+using FluentAssertions;
 using Newtonsoft.Json.Linq;
 using Xunit;
 
@@ -56,6 +58,42 @@ namespace Academy.Domain.Tests
             course.AddSection(section);
 
             course.Sections.Should().ContainEquivalentOf(section);
+        }
+
+        [Fact]
+        public void Should_BeEqual_WhenIdIsEqual()
+        {
+            const int sameId = 1;
+            var courseBuilder = new CourseTestBuilder();
+            var course1 = courseBuilder.WithId(sameId).Build();
+            var course2 = courseBuilder.WithId(sameId).Build();
+
+            var actual = course1.Equals(course2);
+
+            actual.Should().BeTrue();
+        }
+
+        [Fact]
+        public void Should_NotBeEqual_WhenIdIsNotEqual()
+        {
+            var courseBuilder = new CourseTestBuilder();
+            var course1 = courseBuilder.WithId(1).Build();
+            var course2 = courseBuilder.WithId(2).Build();
+
+            var actual = course1.Equals(course2);
+
+            actual.Should().BeFalse();
+        }
+
+        [Fact]
+        public void Should_NotBeEqual_WhenIsNull()
+        {
+            var courseBuilder = new CourseTestBuilder();
+            var course1 = courseBuilder.Build();
+
+            var actual = course1.Equals(null);
+
+            actual.Should().BeFalse();
         }
     }
 }

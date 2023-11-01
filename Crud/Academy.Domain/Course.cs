@@ -40,5 +40,12 @@ namespace Academy.Domain
         {
             Sections.Add(section);
         }
+        public override bool Equals(object? obj)
+        {
+            if (!(obj is Course course))
+                return false;
+
+            return Id == course.Id;
+        }
     }
 }

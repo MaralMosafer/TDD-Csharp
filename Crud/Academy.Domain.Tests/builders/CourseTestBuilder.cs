@@ -1,4 +1,4 @@
-﻿namespace Academy.Domain.Tests
+﻿namespace Academy.Domain.Tests.builders
 {
     public class CourseTestBuilder
     {
@@ -24,6 +24,11 @@
             _tuition = tuition;
             return this;
 
+        }
+        public CourseTestBuilder WithId(int id)
+        {
+            _id = id;
+            return this;
         }
     }
 }
